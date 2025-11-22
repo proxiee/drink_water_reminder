@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Creature from './components/Creature'
+import Creature3D from './components/Creature3D'
 import WaterControls from './components/WaterControls'
 import ProgressBar from './components/ProgressBar'
 import './App.css'
@@ -9,7 +9,7 @@ function App() {
     const saved = localStorage.getItem('dailyGoal')
     return saved ? parseInt(saved) : 0
   })
-  
+
   const [currentIntake, setCurrentIntake] = useState(() => {
     // Check if it's a new day, if so reset (simple logic for now)
     const lastDate = localStorage.getItem('lastDate')
@@ -47,7 +47,7 @@ function App() {
   return (
     <div className="glass-panel">
       <h1>HydraPet</h1>
-      
+
       {dailyGoal === 0 ? (
         <div className="setup-screen">
           <h2>Let's set your daily goal!</h2>
@@ -67,20 +67,20 @@ function App() {
           <div className="stats">
             <span>Goal: {dailyGoal}ml</span>
           </div>
-          
-          <Creature percentage={hydrationPercentage} />
-          
+
+          <Creature3D percentage={hydrationPercentage} />
+
           <div className="stats">
             <strong>{currentIntake}ml</strong> / {dailyGoal}ml
           </div>
 
           <ProgressBar percentage={hydrationPercentage} />
-          
+
           <WaterControls onAdd={addWater} onReset={resetDay} />
-          
-          <button 
-            className="btn-secondary" 
-            style={{marginTop: '2rem', fontSize: '0.8rem'}}
+
+          <button
+            className="btn-secondary"
+            style={{ marginTop: '2rem', fontSize: '0.8rem' }}
             onClick={() => setDailyGoal(0)}
           >
             Change Goal
