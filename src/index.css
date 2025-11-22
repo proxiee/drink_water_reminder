@@ -1,0 +1,168 @@
+:root {
+  --primary-color: #4facfe;
+  --secondary-color: #00f2fe;
+  --background-color: #1a1a2e;
+  --text-color: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.glass-panel {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: #1a1a2e;
+  font-weight: bold;
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background: rgba(79, 172, 254, 0.1);
+}
+
+input {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.creature-container {
+  margin: 2rem 0;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.creature-img {
+  max-height: 100%;
+  max-width: 100%;
+  filter: drop-shadow(0 0 20px rgba(79, 172, 254, 0.3));
+  transition: all 0.5s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.progress-container {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  height: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transition: width 0.5s ease-out;
+  border-radius: 10px;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.stats {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #a0a0a0;
+}
+
+.stats strong {
+  color: white;
+  font-size: 1.5rem;
+}
